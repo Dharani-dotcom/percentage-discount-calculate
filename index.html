@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Discount Calculator</title>
+</head>
+
+<body>
+
+<h2>Discount Calculator</h2>
+
+<label>Product Price:</label><br>
+<input type="number" id="price"><br><br>
+
+<label>Discount Percentage:</label><br>
+<input type="number" id="discount"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="result"></h3>
+
+<script>
+function calculate() {
+
+let price = document.getElementById("price").value;
+let discount = document.getElementById("discount").value;
+
+let discountAmount = (price * discount) / 100;
+let finalPrice = price - discountAmount;
+
+document.getElementById("result").innerHTML =
+"Discount Amount: ₹" + discountAmount.toFixed(2) +
+"<br>Final Price: ₹" + finalPrice.toFixed(2);
+
+}
+</script>
+
+</body>
+</html>
