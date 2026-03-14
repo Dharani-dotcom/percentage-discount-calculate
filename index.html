@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Discount Calculator</title>
+<title>Price Calculator</title>
 </head>
 
 <body>
 
-<h2>Discount Calculator</h2>
+<h2>Price Calculator</h2>
 
 <label>Product Price:</label><br>
 <input type="number" id="price"><br><br>
 
-<label>Discount Percentage:</label><br>
-<input type="number" id="discount"><br><br>
+<label>Percentage:</label><br>
+<input type="number" id="percent"><br><br>
 
-<button onclick="calculate()">Calculate</button>
+<button onclick="discount()">Discount</button>
+<button onclick="increase()">Increase</button>
 
 <h3 id="result"></h3>
 
 <script>
-function calculate() {
 
+function discount() {
 let price = document.getElementById("price").value;
-let discount = document.getElementById("discount").value;
+let percent = document.getElementById("percent").value;
 
-let discountAmount = (price * discount) / 100;
-let finalPrice = price - discountAmount;
+let amount = (price * percent) / 100;
+let final = price - amount;
 
 document.getElementById("result").innerHTML =
-"Discount Amount: ₹" + discountAmount.toFixed(2) +
-"<br>Final Price: ₹" + finalPrice.toFixed(2);
-
+"Discount: ₹" + amount.toFixed(2) +
+"<br>Final Price: ₹" + final.toFixed(2);
 }
+
+function increase() {
+let price = document.getElementById("price").value;
+let percent = document.getElementById("percent").value;
+
+let amount = (price * percent) / 100;
+let final = Number(price) + Number(amount);
+
+document.getElementById("result").innerHTML =
+"Increase: ₹" + amount.toFixed(2) +
+"<br>New Price: ₹" + final.toFixed(2);
+}
+
 </script>
 
 </body>
